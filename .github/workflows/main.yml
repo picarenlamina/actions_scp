@@ -21,3 +21,4 @@ jobs:
         #target: "/var/www/html"
         target: "/home/ubuntu/"
         timeout: 120s
+        
