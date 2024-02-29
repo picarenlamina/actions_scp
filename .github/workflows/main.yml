@@ -17,7 +17,6 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-      with:
         source: "site/*"
         target: "/var/www/html"
         strip_components: 1
