@@ -19,4 +19,4 @@ jobs:
         port: ${{ secrets.PORT}}
         source: "./site/*"
         #target: "/var/www/html"
-        target: "/home/my_user_name/"
+        target: "/home/ubuntu/"
