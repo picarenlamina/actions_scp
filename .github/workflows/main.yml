@@ -8,17 +8,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-   
-
-
-    - name: Executing remote  command
-      uses: appleboy/ssh-action@master
+    - name: Copiar el contenido del repositorio con scp
+      uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-        script: |
-          whoami
-          cd /var/www/html
-          echo hola >> fichero.html
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSHKEY }}
+        port: ${{ secrets.PORT}}
+        source: "site/*.*"
+        #target: "/var/www/html"
+        target: "/home/ubuntu/"
+        timeout: 120s
