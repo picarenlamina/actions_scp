@@ -1,0 +1,27 @@
+on: push
+name: Publish Website
+jobs:
+  web-deploy:
+    name: 🚀 Deploy Website Every Commit
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get Latest Code
+      uses: actions/checkout@v3
+
+    - name: 📦 Install Packages
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: "npm"
+    - run: npm ci
+      
+    - name: 🔨 Build
+      run: npm run build
+    
+    - name: 📂 Sync Files
+      uses: SamKirkland/web-deploy@v1
+      with:
+        target-server:  ${{ secrets.HOST }}
+        remote-user: ${{ secrets.USERNAME }}
+        private-ssh-key: ${{ secrets.SSHKEY }}
+        destination-path: ~/
