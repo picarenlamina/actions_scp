@@ -1,9 +1,13 @@
-on: push
-name: Publish Website
+
+on: [push]
+
+
+
 jobs:
-  web-deploy:
-    name: Deploy Website Every Commit
-    runs-on: ubuntu-latest
+  deploy:
+	runs-on: ubuntu-latest
+   
+    
     steps:
     - name: Get Latest Code
       uses: actions/checkout@v3
