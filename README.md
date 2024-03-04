@@ -13,7 +13,15 @@ https://stackoverflow.com/questions/76029565/suddenly-cant-connect-without-a-pri
 https://gustavoramosm.medium.com/uso-de-claves-privadas-pem-para-conexi%C3%B3n-ssh-a-servidores-linux-usando-cli-b41e978883fb
 
 --Abrir puerto 22 aws
-sudo ufw allow 22
+
 https://www.digitalocean.com/community/tutorials/como-configurar-un-firewall-con-ufw-en-ubuntu-18-04-es
+$sudo ufw allow 22
+
+--Permitir escritura directorio /var/www/html
+
+https://usuariodebian.blogspot.com/2020/09/apache-permisos-usuario-y-grupo-www-data.html
+$sudo chown -R www-data:www-data /var/www/html   
+$sudo  chmod -R g+w /var/www/htmlml
+$sudo usermod -a -G www-data ubuntu
 
 
