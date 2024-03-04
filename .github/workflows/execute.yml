@@ -1,0 +1,22 @@
+on: [push]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Copiar el contenido del repositorio con scp
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        #host: ${{ secrets.HOST }}
+        host: 16.170.164.194
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSHKEY }}
+        port: ${{ secrets.PORT}}
+        script: |
+          whoami
+          cd /var/www/html
+          mkdir prueba
