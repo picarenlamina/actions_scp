@@ -17,6 +17,6 @@ jobs:
         key: ${{ secrets.SSHKEY }}
         port: ${{ secrets.PORT}}
         source: "site/*.*"
-        #target: "/var/www/html"
-        target: "/home/ubuntu/"
+        target: "/var/www/html"
+        #target: "/home/ubuntu/"
         timeout: 120s
